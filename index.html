@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- 
+	This is a the visual front end for a generic Web App. You should not have to change
+	anything here.
+	
+	Sam Scott, Sheridan College, 2013
+ -->
+<html>
+<head>
+<title>No title</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="style/canvasAppStyle.css">
+<script type="text/javascript" src="code/canvasAppHelper.js"></script>
+<script type="text/javascript" src="code/myCanvasApp.js"></script>
+</head>
+<body onload="initHelper(event)" onkeydown="keyDownHelper(event)"
+	onkeyup="keyUpHelper(event)" onkeypress="keyPressHelper(event)">
+	<div id="container">
+		<h1 id="title">No title</h1>
+		<h2 id="author">No author</h2>
+		<canvas width="0" height="0" id="canvas"
+			onmousedown="onMouseDownHelper(event)"
+			onmouseup="onMouseUpHelper(event)"
+			onmousemove="onMouseMoveHelper(event)"
+			onmouseover="onMouseOverHelper(event)"
+			onmouseout="onMouseOutHelper(event)">
+			Sorry, your browser does not support the HTML5 Canvas. Please switch to a better browser.
+		</canvas>
+		<br>
+		<div id="buttons">
+			<input value="" type="button" id="button1" style="display: none"
+				onclick="button1ClickHelper(event)"> <input value=""
+				type="button" id="button2" style="display: none"
+				onclick="button2ClickHelper(event)">
+		</div>
+		<p id="debug"></p>
+	</div>
+</body>
+</html>
