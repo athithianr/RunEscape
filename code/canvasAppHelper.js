@@ -1,11 +1,9 @@
 /**
- * This is helper code for your web app. You should not change anything here.
- * 
- * @author Sam Scott, Sheridan College, 2013
+ * @author Athi Rajkumar
  */
 
 //Global Variable for the canvas drawing surface
-var canvas; 
+var canvas;
 
 /*
  * Called when the index.html document has loaded. 
@@ -17,26 +15,26 @@ function initHelper(event) {
 	canvas = document.getElementById("canvas").getContext("2d");
 
 	// canvas extensions
-	canvas.strokeArc = function(x, y, radius, start, end) {
+	canvas.strokeArc = function (x, y, radius, start, end) {
 		this.beginPath();
-		this.arc(x,y,radius,-start/180*Math.PI,-end/180*Math.PI,true);
+		this.arc(x, y, radius, -start / 180 * Math.PI, -end / 180 * Math.PI, true);
 		this.stroke();
 	};
 
-	canvas.fillArc = function(x, y, radius, start, end) {
+	canvas.fillArc = function (x, y, radius, start, end) {
 		this.beginPath();
-		this.arc(x,y,radius,-start/180*Math.PI,-end/180*Math.PI,true);
-		this.lineTo(x,y);
+		this.arc(x, y, radius, -start / 180 * Math.PI, -end / 180 * Math.PI, true);
+		this.lineTo(x, y);
 		this.fill();
 	};
 
-	canvas.strokeLine = function(x,y,x2,y2) { 
-		this.beginPath(); 
-		this.moveTo(x,y); 
-		this.lineTo(x2,y2); 
-		this.stroke(); 
+	canvas.strokeLine = function (x, y, x2, y2) {
+		this.beginPath();
+		this.moveTo(x, y);
+		this.lineTo(x2, y2);
+		this.stroke();
 	};
-	
+
 	// Call web app init method
 	init();
 }
@@ -47,7 +45,7 @@ function initHelper(event) {
  * @param (string) message The message to display
  */
 function debugOut(message) {
-	document.getElementById("debug").innerHTML += message+"<br>";
+	document.getElementById("debug").innerHTML += message + "<br>";
 }
 /*
  * Gets the key that was pressed and calls the app's keyDown function.
@@ -77,7 +75,7 @@ function keyPressHelper(event) {
 function onMouseDownHelper(event) {
 	var x = event.clientX - canvas.canvas.offsetLeft + window.scrollX;
 	var y = event.clientY - canvas.canvas.offsetTop + window.scrollY;
-	mouseDown(x,y,event.button);
+	mouseDown(x, y, event.button);
 }
 /*
  * Gets the location and button and calls the app's mouseUp function.
@@ -86,7 +84,7 @@ function onMouseDownHelper(event) {
 function onMouseUpHelper(event) {
 	var x = event.clientX - canvas.canvas.offsetLeft + window.scrollX;
 	var y = event.clientY - canvas.canvas.offsetTop + window.scrollY;
-	mouseUp(x,y,event.button);
+	mouseUp(x, y, event.button);
 }
 /*
  * Gets the location of a move and calls the app's mouseMove function.
@@ -95,7 +93,7 @@ function onMouseUpHelper(event) {
 function onMouseMoveHelper(event) {
 	var x = event.clientX - canvas.canvas.offsetLeft + window.scrollX;
 	var y = event.clientY - canvas.canvas.offsetTop + window.scrollY;
-	mouseMove(x,y);
+	mouseMove(x, y);
 }
 /*
  * Gets the location and calls the app's mouseOver function.
@@ -104,7 +102,7 @@ function onMouseMoveHelper(event) {
 function onMouseOverHelper(event) {
 	var x = event.clientX - canvas.canvas.offsetLeft + window.scrollX;
 	var y = event.clientY - canvas.canvas.offsetTop + window.scrollY;
-	mouseOver(x,y);
+	mouseOver(x, y);
 }
 /*
  * Gets the location and calls the app's mouseOut function.
@@ -113,7 +111,7 @@ function onMouseOverHelper(event) {
 function onMouseOutHelper(event) {
 	var x = event.clientX - canvas.canvas.offsetLeft + window.scrollX;
 	var y = event.clientY - canvas.canvas.offsetTop + window.scrollY;
-	mouseOut(x,y);
+	mouseOut(x, y);
 }
 /*
  * Gets the button number and calls the app's button1Click function.
@@ -134,15 +132,15 @@ function button2ClickHelper(event) {
  * @param (string) title
  */
 function setTitle(title) {
-	document.getElementsByTagName("title")[0].innerHTML=title;
-	document.getElementById("title").innerHTML=title;
+	document.getElementsByTagName("title")[0].innerHTML = title;
+	document.getElementById("title").innerHTML = title;
 }
 /*
  * Customize author info
  * @param (string) byLine
  */
 function setByLine(byLine) {
-	document.getElementById("author").innerHTML=byLine;
+	document.getElementById("author").innerHTML = byLine;
 }
 /*
  * Customize button 1. If param is "", button disappears.
@@ -152,10 +150,10 @@ function setButton1(value) {
 	var button = document.getElementById("button1");
 
 	if (value == "")
-		button.style["display"]="none";
+		button.style["display"] = "none";
 	else {
-		button.value=value;
-		button.style["display"]="inline";
+		button.value = value;
+		button.style["display"] = "inline";
 	}
 }
 /*
@@ -166,10 +164,10 @@ function setButton2(value) {
 	var button = document.getElementById("button2");
 
 	if (value == "")
-		button.style["display"]="none";
+		button.style["display"] = "none";
 	else {
-		button.value=value;
-		button.style["display"]="inline";
+		button.value = value;
+		button.style["display"] = "inline";
 	}
 }
 /* Customize canvas size
@@ -192,7 +190,7 @@ var timer = -1;
 function setTimer(interval) {
 	if (interval > 0)
 		if (timer == -1)
-			timer = setInterval(clockTickEvent,interval);
+			timer = setInterval(clockTickEvent, interval);
 		else
 			alert("ERROR: Attempt to set two timers.");
 	else {
